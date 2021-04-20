@@ -3,7 +3,7 @@ const nodeExternals = require("webpack-node-externals");
 const path = require("path");
 
 module.exports = {
-  entry: `${root}/server/src/server.jsx`,
+  entry: `${root}/server/src/server.tsx`,
   target: "node",
   output: {
     filename: "index.js",
@@ -11,19 +11,19 @@ module.exports = {
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".jsx", ".js"],
+    extensions: [".ts", ".tsx", ".js"],
   },
   externals: [nodeExternals()],
   module: {
     rules: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         use: [
           {
             loader: "babel-loader",
             options: {
-              presets: ["@babel/preset-react"],
+              presets: ["@babel/preset-typescript", "@babel/preset-react"],
               plugins: [
                 [
                   "babel-plugin-styled-components",
@@ -35,30 +35,9 @@ module.exports = {
                     transpileTemplateLiterals: false,
                   },
                 ],
-                //  [
-                //   require.resolve("babel-plugin-css-prop"),
-                //   {
-                //     displayName: true,
-                //     fileName: false,
-                //     ssr: true,
-                //     cssProp: true,
-                //     transpileTemplateLiterals: false,
-                //   },
-                // ],
-                // [
-                //   require.resolve("babel-plugin-styled-components"),
-                //   {
-                //     displayName: true,
-                //     fileName: false,
-                //     ssr: true,
-                //     cssProp: true,
-                //     transpileTemplateLiterals: false,
-                //   },
-                // ],
               ],
             },
           },
-          // "ts-loader",
         ],
       },
     ],

@@ -5,18 +5,24 @@ const express = require("express");
 
 const app = express();
 
-const StyledDiv = styled.div`border: 1px solid red; ${1 == 1 && css`margin-top: 2px;`}`
+const StyledDiv = styled.div`border: 1px solid red;}`
 
 const App = () => {
   return (
     <>
-      <StyledDiv />
+      <StyledDiv >
+        stlyed div
+      </StyledDiv >
+      <StyledDiv css={css`margin: 2px;`}>
+        stlyed div modified
+      </StyledDiv >
       <div
         css={css`
-          color: red;
+          color: blue;
+          ${1 === 1 ? css`margin-top: 1px;` : css`margin-bottom: 1px;`}
         `}
       >
-        blue
+        with css prop
     </div>
     </>
   );
