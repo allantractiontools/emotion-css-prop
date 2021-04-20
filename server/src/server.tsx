@@ -41,6 +41,6 @@ app.get("*", (_, response) => {
   `);
 });
 
-app.listen(3005, () => {
-  console.info("listening to 3005");
+app.listen(3006, () => {
+  console.info("listening to 3006");
 });
