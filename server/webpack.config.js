@@ -3,7 +3,7 @@ const nodeExternals = require("webpack-node-externals");
 const path = require("path");
 
 module.exports = {
-  entry: `${root}/server/src/server.tsx`,
+  entry: `${root}/server/src/server.jsx`,
   target: "node",
   output: {
     filename: "index.js",
@@ -11,14 +11,14 @@ module.exports = {
   },
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".jsx", ".js"],
   },
   externals: [nodeExternals()],
   module: {
     rules: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
       {
-        test: /\.tsx?$/,
+        test: /\.jsx?$/,
         use: [
           {
             loader: "babel-loader",
@@ -58,7 +58,7 @@ module.exports = {
               ],
             },
           },
-          "ts-loader",
+          // "ts-loader",
         ],
       },
     ],

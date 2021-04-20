@@ -10,13 +10,15 @@ const StyledDiv = styled.div`border: 1px solid red; ${1 == 1 && css`margin-top: 
 const App = () => {
   return (
     <>
-      <StyledDiv />
+      <StyledDiv >
+          stlyed div
+      </StyledDiv >
       <div
         css={css`
-          color: red;
+          color: blue;
         `}
       >
-        blue
+        with css prop
     </div>
     </>
   );
