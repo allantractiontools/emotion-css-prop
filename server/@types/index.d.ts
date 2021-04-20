@@ -1,1 +1,1 @@
-/// <reference types="@emotion/react/types/css-prop" />
+import type {} from "styled-components/cssprop";

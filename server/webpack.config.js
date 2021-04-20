@@ -23,19 +23,16 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              presets: [
-                "@babel/preset-react",
-                "@emotion/babel-preset-css-prop",
-              ],
+              presets: ["@babel/preset-react"],
               plugins: [
                 [
-                  "@emotion",
+                  "babel-plugin-styled-components",
                   {
-                    // sourceMap is on by default but source maps are dead code eliminated in production
-                    sourceMap: true,
-                    autoLabel: "dev-only",
-                    labelFormat: "[local]",
-                    cssPropOptimization: true,
+                    cssProp: true,
+                    ssr: true,
+                    displayName: true,
+                    fileName: false,
+                    transpileTemplateLiterals: false,
                   },
                 ],
                 //  [
